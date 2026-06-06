@@ -191,8 +191,8 @@ const portfolioHTML = `<!DOCTYPE html>
                 <div class="contact-links" style="margin-top:0.8rem;">
                     <a id="p-email-link" href="mailto:kurapati.mythri2004@gmail.com" class="contact-item">📧 <span id="p-email">kurapati.mythri2004@gmail.com</span></a>
                     <a id="p-phone-link" href="tel:+918019319269" class="contact-item">📞 <span id="p-phone">+91 8019319269</span></a>
-                    <a id="p-linkedin-link" href="https://www.linkedin.com/in/kurapatimythri" class="contact-item" target="_blank">🔗 <span id="p-linkedin">linkedin.com/in/kurapatimythri</span></a>
-                    <a id="p-github-link" href="https://github.com/Kurapati-Mythri" class="contact-item" target="_blank">🐙 <span id="p-github">github.com/Kurapati-Mythri</span></a>
+                    <a id="p-linkedin-link" href="https://www.linkedin.com/in/kurapatimythri" class="contact-item" target="_blank">🔗 <span id="p-linkedin">https://www.linkedin.com/in/kurapatimythri</span></a>
+                    <a id="p-github-link" href="https://github.com/Kurapati-Mythri" class="contact-item" target="_blank">🐙 <span id="p-github">https://github.com/Kurapati-Mythri</span></a>
                 </div>
                 <div class="badge-pastel" style="margin-top:0.8rem;display:inline-block;">📍 <span id="p-location">Bangalore, India</span></div>
             </div>
@@ -369,6 +369,8 @@ function applyChanges() {
     html = html.replace(/\+91 8019319269/g, phone);
     html = html.replace(/linkedin\.com\/in\/kurapatimythri/g, linkedin);
     html = html.replace(/github\.com\/Kurapati-Mythri/g, github);
+    document.getElementById('p-linkedin-link').href = linkedin.startsWith('http') ? linkedin : 'https://' + linkedin;
+    document.getElementById('p-github-link').href = github.startsWith('http') ? github : 'https://' + github;
     html = html.replace(/Kurapati-Mythri/g, github.split('/').pop());
     html = html.replace(/Bangalore, India/g, location);
     html = html.replace(/Motivated and self-driven Electronics[\s\S]*?innovative organization\./, summary);
